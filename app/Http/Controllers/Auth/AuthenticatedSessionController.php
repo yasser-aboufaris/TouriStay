@@ -30,10 +30,10 @@ class AuthenticatedSessionController extends Controller
 
     $user = Auth::user();
 
-    if ($user->id_role == 2) {
+    if ($user->id_role == 1) {
         return redirect('/admin');
-    } elseif ($user->id_role == 3) {
-        return redirect('/editor');
+    } elseif ($user->id_role ==2) {
+        return redirect('/ownerHome');
     } else {
         return redirect('/user');
     }

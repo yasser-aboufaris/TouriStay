@@ -58,35 +58,34 @@
     <section class="hero-section text-white py-24">
         <div class="container mx-auto px-6 text-center">
             <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">Find Your Dream Home Today</h1>
-            <p class="text-xl mb-10 opacity-90 max-w-2xl mx-auto">Browse thousands of rental properties in your area and discover the perfect place to call home</p>
+            <p class="text-xl mb-10 opacity-90 max-w-2xl mx-auto">Browse thousands of rental properties available during your desired dates</p>
             <div class="max-w-3xl mx-auto">
                 <div class="search-bar flex flex-col md:flex-row bg-white rounded-lg p-3 items-center">
                     <div class="flex items-center flex-1 border-b md:border-b-0 md:border-r border-gray-200 p-2 w-full md:w-auto">
                         <i class="fas fa-map-marker-alt text-blue-600 mr-3"></i>
-                        <input type="text" placeholder="City or zip code" class="flex-1 text-gray-700 focus:outline-none w-full">
+                        <input type="text" placeholder="City or neighborhood" class="flex-1 text-gray-700 focus:outline-none w-full">
                     </div>
                     <div class="flex items-center flex-1 border-b md:border-b-0 md:border-r border-gray-200 p-2 w-full md:w-auto">
-                        <i class="fas fa-building text-blue-600 mr-3"></i>
-                        <select class="flex-1 text-gray-700 focus:outline-none w-full">
-                            <option value="">Property Type</option>
-                            <option value="apartment">Apartment</option>
-                            <option value="house">House</option>
-                            <option value="condo">Condo</option>
-                        </select>
+                        <i class="fas fa-calendar-alt text-blue-600 mr-3"></i>
+                        <input type="date" placeholder="Move-in date" class="flex-1 text-gray-700 focus:outline-none w-full">
                     </div>
                     <div class="flex items-center flex-1 p-2 w-full md:w-auto">
-                        <i class="fas fa-dollar-sign text-blue-600 mr-3"></i>
-                        <select class="flex-1 text-gray-700 focus:outline-none w-full">
-                            <option value="">Price Range</option>
-                            <option value="0-1000">$0 - $1,000</option>
-                            <option value="1000-2000">$1,000 - $2,000</option>
-                            <option value="2000-3000">$2,000 - $3,000</option>
-                            <option value="3000+">$3,000+</option>
-                        </select>
+                        <i class="fas fa-calendar-alt text-blue-600 mr-3"></i>
+                        <input type="date" placeholder="Move-out date" class="flex-1 text-gray-700 focus:outline-none w-full">
                     </div>
                     <button class="mt-4 md:mt-0 md:ml-4 bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors w-full md:w-auto font-medium">
                         <i class="fas fa-search mr-2"></i>Search
                     </button>
+                </div>
+                <div class="mt-3 text-sm flex justify-center space-x-4">
+                    <label class="flex items-center cursor-pointer">
+                        <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600">
+                        <span class="ml-2">Show only available properties</span>
+                    </label>
+                    <label class="flex items-center cursor-pointer">
+                        <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600">
+                        <span class="ml-2">Include nearby areas</span>
+                    </label>
                 </div>
             </div>
         </div>
@@ -95,7 +94,7 @@
     <!-- Stats Section -->
     <section class="bg-white py-12">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
                 <div class="p-6">
                     <div class="text-blue-600 text-4xl font-bold mb-2">5,000+</div>
                     <p class="text-gray-600">Available Properties</p>
@@ -107,6 +106,10 @@
                 <div class="p-6">
                     <div class="text-blue-600 text-4xl font-bold mb-2">150+</div>
                     <p class="text-gray-600">Cities Covered</p>
+                </div>
+                <div class="p-6">
+                    <div class="text-blue-600 text-4xl font-bold mb-2">98%</div>
+                    <p class="text-gray-600">Satisfaction Rate</p>
                 </div>
             </div>
         </div>
@@ -124,6 +127,7 @@
                 <div class="relative">
                     <div class="property-image h-64" style="background-image: url('/api/placeholder/600/400')"></div>
                     <div class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">Featured</div>
+                    <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">Available Now</div>
                     <div class="absolute bottom-4 right-4 bg-white text-blue-600 p-2 rounded-full shadow-md">
                         <i class="far fa-heart"></i>
                     </div>
@@ -134,10 +138,13 @@
                         <div class="text-blue-600 font-bold">$1,500/mo</div>
                     </div>
                     <p class="text-gray-600 mb-4"><i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>123 Main St, Springfield</p>
-                    <div class="flex justify-between text-sm text-gray-500 mb-6">
+                    <div class="flex justify-between text-sm text-gray-500 mb-4">
                         <span class="flex items-center"><i class="fas fa-bed text-blue-600 mr-2"></i>3 Beds</span>
                         <span class="flex items-center"><i class="fas fa-bath text-blue-600 mr-2"></i>2 Baths</span>
                         <span class="flex items-center"><i class="fas fa-ruler-combined text-blue-600 mr-2"></i>1,200 sqft</span>
+                    </div>
+                    <div class="mb-6 text-sm text-gray-500">
+                        <i class="fas fa-calendar-check text-blue-600 mr-2"></i>Available: Mar 1 - Aug 31, 2025
                     </div>
                     <button class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium">View Details</button>
                 </div>
@@ -147,6 +154,7 @@
                 <div class="relative">
                     <div class="property-image h-64" style="background-image: url('/api/placeholder/600/400')"></div>
                     <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">New</div>
+                    <div class="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">Available Apr 15</div>
                     <div class="absolute bottom-4 right-4 bg-white text-blue-600 p-2 rounded-full shadow-md">
                         <i class="far fa-heart"></i>
                     </div>
@@ -157,10 +165,13 @@
                         <div class="text-blue-600 font-bold">$2,000/mo</div>
                     </div>
                     <p class="text-gray-600 mb-4"><i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>456 Oak Ave, Downtown</p>
-                    <div class="flex justify-between text-sm text-gray-500 mb-6">
+                    <div class="flex justify-between text-sm text-gray-500 mb-4">
                         <span class="flex items-center"><i class="fas fa-bed text-blue-600 mr-2"></i>2 Beds</span>
                         <span class="flex items-center"><i class="fas fa-bath text-blue-600 mr-2"></i>1 Bath</span>
                         <span class="flex items-center"><i class="fas fa-ruler-combined text-blue-600 mr-2"></i>900 sqft</span>
+                    </div>
+                    <div class="mb-6 text-sm text-gray-500">
+                        <i class="fas fa-calendar-check text-blue-600 mr-2"></i>Available: Apr 15 - Dec 31, 2025
                     </div>
                     <button class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium">View Details</button>
                 </div>
@@ -170,6 +181,7 @@
                 <div class="relative">
                     <div class="property-image h-64" style="background-image: url('/api/placeholder/600/400')"></div>
                     <div class="absolute top-4 left-4 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium">Premium</div>
+                    <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">Available Now</div>
                     <div class="absolute bottom-4 right-4 bg-white text-blue-600 p-2 rounded-full shadow-md">
                         <i class="far fa-heart"></i>
                     </div>
@@ -180,10 +192,13 @@
                         <div class="text-blue-600 font-bold">$3,500/mo</div>
                     </div>
                     <p class="text-gray-600 mb-4"><i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>789 Pine Rd, Hillside</p>
-                    <div class="flex justify-between text-sm text-gray-500 mb-6">
+                    <div class="flex justify-between text-sm text-gray-500 mb-4">
                         <span class="flex items-center"><i class="fas fa-bed text-blue-600 mr-2"></i>4 Beds</span>
                         <span class="flex items-center"><i class="fas fa-bath text-blue-600 mr-2"></i>3 Baths</span>
                         <span class="flex items-center"><i class="fas fa-ruler-combined text-blue-600 mr-2"></i>2,500 sqft</span>
+                    </div>
+                    <div class="mb-6 text-sm text-gray-500">
+                        <i class="fas fa-calendar-check text-blue-600 mr-2"></i>Available: Mar 1 - Open-ended
                     </div>
                     <button class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium">View Details</button>
                 </div>
@@ -191,26 +206,67 @@
         </div>
     </section>
 
-    <!-- How It Works -->
+    <!-- Popular Dates Section -->
     <section class="bg-gray-100 py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Popular Move-in Dates</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fas fa-calendar-day"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">March 1</h3>
+                    <p class="text-gray-600 mb-4">Spring move-in special</p>
+                    <span class="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">145 Properties</span>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fas fa-calendar-day"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">April 15</h3>
+                    <p class="text-gray-600 mb-4">Mid-month availability</p>
+                    <span class="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">87 Properties</span>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fas fa-calendar-day"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">May 1</h3>
+                    <p class="text-gray-600 mb-4">Summer move-in special</p>
+                    <span class="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">203 Properties</span>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fas fa-calendar-day"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">June 1</h3>
+                    <p class="text-gray-600 mb-4">Early summer availability</p>
+                    <span class="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">156 Properties</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="bg-white py-16">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-12">How It Works</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center">
                     <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
-                        <i class="fas fa-search"></i>
+                        <i class="fas fa-calendar-alt"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">Search Properties</h3>
-                    <p class="text-gray-600">Browse thousands of listings based on your preferences and requirements.</p>
+                    <h3 class="text-xl font-semibold mb-4">Choose Your Dates</h3>
+                    <p class="text-gray-600">Select your desired move-in and move-out dates to find available properties.</p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center">
                     <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
                         <i class="fas fa-home"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-4">Book Viewings</h3>
                     <p class="text-gray-600">Schedule viewings with landlords or property managers at convenient times.</p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center">
                     <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
                         <i class="fas fa-key"></i>
                     </div>
@@ -225,9 +281,9 @@
     <section class="bg-blue-600 text-white py-16">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl font-bold mb-4">Ready to Find Your Perfect Home?</h2>
-            <p class="text-xl mb-8 opacity-90 max-w-2xl mx-auto">Join thousands of happy tenants who found their dream homes with HouseRent</p>
+            <p class="text-xl mb-8 opacity-90 max-w-2xl mx-auto">Search by availability dates to find the perfect property on your schedule</p>
             <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="#" class="bg-white text-blue-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium">Browse Listings</a>
+                <a href="#" class="bg-white text-blue-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium">Search Available Dates</a>
                 <a href="#" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:text-blue-600 transition-colors font-medium">Learn More</a>
             </div>
         </div>
@@ -245,7 +301,7 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                 </div>
-                <p class="text-gray-600 mb-6">"HouseRent made finding my apartment so easy! The platform is user-friendly and the customer service was exceptional."</p>
+                <p class="text-gray-600 mb-6">"Being able to search by date made finding a place that fit my timeline so much easier. I found the perfect apartment that was available exactly when I needed it!"</p>
                 <div class="flex items-center">
                     <div class="w-12 h-12 bg-blue-100 rounded-full mr-4"></div>
                     <div>
@@ -262,7 +318,7 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                 </div>
-                <p class="text-gray-600 mb-6">"I found my dream house in less than a week! The filtering options really helped me narrow down exactly what I was looking for."</p>
+                <p class="text-gray-600 mb-6">"I needed a place with specific availability dates for my summer internship. This site made it simple to find exactly what I needed!"</p>
                 <div class="flex items-center">
                     <div class="w-12 h-12 bg-blue-100 rounded-full mr-4"></div>
                     <div>
@@ -279,7 +335,7 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <p class="text-gray-600 mb-6">"As a landlord, I love how easy it is to list my properties. I've found reliable tenants quickly and the process was seamless."</p>
+                <p class="text-gray-600 mb-6">"As a landlord, I love how I can list my property's availability dates. It helps me find tenants who match my schedule perfectly."</p>
                 <div class="flex items-center">
                     <div class="w-12 h-12 bg-blue-100 rounded-full mr-4"></div>
                     <div>
@@ -302,7 +358,7 @@
                             <span class="text-blue-500">House</span><span class="text-white">Rent</span>
                         </div>
                     </div>
-                    <p class="text-gray-400 mb-4">Finding your perfect home made easy. Browse thousands of rental properties in your area.</p>
+                    <p class="text-gray-400 mb-4">Finding your perfect home on your schedule. Browse thousands of rental properties with your preferred availability dates.</p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-gray-400 hover:text-white transition-colors">
                             <i class="fab fa-facebook-f"></i>
@@ -322,7 +378,7 @@
                     <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Listings</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Search by Date</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
@@ -332,7 +388,7 @@
                     <h3 class="text-lg font-semibold mb-4">For Tenants</h3>
                     <ul class="space-y-2">
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors">How It Works</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Search Properties</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Date-Based Search</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tenant Resources</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Renting Guide</a></li>
                     </ul>
@@ -368,3 +424,5 @@
     </script>
 </body>
 </html>
+
+Version 2 of 2
