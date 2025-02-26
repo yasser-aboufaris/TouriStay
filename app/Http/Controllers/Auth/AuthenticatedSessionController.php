@@ -24,13 +24,20 @@ class AuthenticatedSessionController extends Controller
      * Handle an incoming authentication request.
      */
     public function store(LoginRequest $request): RedirectResponse
-    {
-        $request->authenticate();
+{
+    $request->authenticate();
+    $request->session()->regenerate();
 
-        $request->session()->regenerate();
+    $user = Auth::user();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+    if ($user->id_role == 2) {
+        return redirect('/admin');
+    } elseif ($user->id_role == 3) {
+        return redirect('/editor');
+    } else {
+        return redirect('/user');
     }
+}
 
     /**
      * Destroy an authenticated session.
