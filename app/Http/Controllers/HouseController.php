@@ -1,62 +1,83 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-
-class HouseController extends Controller
-{
-    <?php
-
-namespace App\Http\Controllers;
+use Illuminate\Database\QueryException;
+use Illuminate\Validation\ValidationException;
 
 use Illuminate\Http\Request;
 use App\Models\House;
+use Illuminate\Support\Facades\Auth; // For Auth
 
 class HouseController extends Controller
 {
-    public function create()
-    {
-        return view('houses.create'); // Return the form view
-    }
+    /**
+     * Show the form for creating a new house.
+     *
+     * @return \Illuminate\View\View
 
+    /**
+     * Store a newly created house in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\View\View
+     */
     public function store(Request $request)
-    {
-        // Validate the request
-        $request->validate([
-            'id_owner' => 'required|exists:users,id',
+{
+    try {
+        $validatedData = $request->validate([
             'title' => 'required|string|max:255',
-            'id_categorie' => 'required|exists:categories,id',
             'description' => 'required|string',
             'price' => 'required|numeric',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'equipements' => 'array',
-            'equipements.*' => 'exists:equipements,id',
         ]);
 
-        // Handle image upload
-        $imagePath = null;
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('houses', 'public'); // Store image in public storage
-        }
+        // Proceed with storing data (Example: saving to database)
+        // Model::create($validatedData);
 
-        // Create the house
+    
+
+    } catch (ValidationException $e) {
+    
+        dd($e->validator);
+             // Keeps old input data
+    } catch (\Exception $e) {
+    dd('error', 'Something went wrong: ' . $e->getMessage());
+    }
+    
+    $idOwner = auth()->user()->id;
+
+    // if (!$idOwner) {
+    //     return redirect()->back()->withErrors(['error' => 'User session expired. Please try again.']);
+    // }
+
+
+    
+    try {
         $house = House::create([
-            'id_owner' => $request->id_owner,
+            'id_owner' => $idOwner,
             'title' => $request->title,
             'id_categorie' => $request->id_categorie,
             'description' => $request->description,
             'price' => $request->price,
-            'image' => $imagePath,
         ]);
-
-        // Attach equipements if provided
-        if ($request->has('equipements')) {
+    
+        if ($request->has('equipements') && is_array($request->equipements)) {
             $house->equipements()->attach($request->equipements);
         }
-
-        return redirect()->route('houses.index')->with('success', 'House created successfully!');
+        
+    
+        return redirect()->back()->with('message', 'House created successfully!');
+    } catch (ValidationException $e) {
+        // Flash the validation errors to the session
+        dd('hhhhhh');
+        // return redirect()->back()->withErrors($e->validator)->withInput();
+    } catch (QueryException $e) {
+        dd($e);
+        // return redirect()->back()->with('error', 'Database error: ' . $e->getMessage())->withInput();
+    } catch (\Exception $e) {
+        dd($e);
+        // return redirect()->back()->with('error', 'Unexpected error: ' . $e->getMessage())->withInput();
     }
-}
+    
 
-}
+}}

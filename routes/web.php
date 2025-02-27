@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HouseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,8 @@ Route::get('/test', function() {
 Route::get('/ownerHome', function() {
     return view('/ownerHome');
 });
+Route::post('/houses/create', [HouseController::class, 'store'])->name('houses.create');
+
 
 
 

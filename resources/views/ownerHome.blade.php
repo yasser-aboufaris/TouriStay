@@ -93,7 +93,8 @@
         <!-- Add Property Form -->
         <div id="propertyForm" class="property-form bg-white p-6 rounded-xl shadow-lg mb-8">
             <h3 class="text-xl font-bold text-gray-800 mb-4">Add New Property</h3>
-            <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form  action="{{route('houses.create')}}" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                @csrf
     <div>
         <label for="title" class="block text-gray-700 mb-2 font-medium">Property Title</label>
         <input type="text" id="title" name="title" class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="Enter property title">
@@ -291,6 +292,7 @@
 
     <script>
         // Toggle property form
+
         function toggleForm() {
             const form = document.getElementById('propertyForm');
             if (form.style.maxHeight) {
