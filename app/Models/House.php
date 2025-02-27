@@ -31,7 +31,7 @@ class House extends Model
         return $this->belongsTo(Category::class, 'id_categorie');
     }
 
-    public function equipements()
+    public function equipement()
     {
         return $this->belongsToMany(Equipement::class, 'equipement_house', 'id_house', 'id_equipement');
     }

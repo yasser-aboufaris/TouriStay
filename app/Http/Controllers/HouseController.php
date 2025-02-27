@@ -20,7 +20,22 @@ class HouseController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\View\View
+     * 
+     * 
+     * 
+     * 
      */
+
+public function index($param){
+
+    $houses=House::With(['category','equipement'])->paginate($param);
+    // foreach($houses as $house){
+    //     print_r($house);
+    // }
+    return view('paginate',compact('houses','param'));
+
+}
+
     public function store(Request $request)
 {
     try {
@@ -77,7 +92,7 @@ class HouseController extends Controller
     } catch (\Exception $e) {
         dd($e);
         // return redirect()->back()->with('error', 'Unexpected error: ' . $e->getMessage())->withInput();
-    }
-    
+    }}
 
-}}
+
+} 

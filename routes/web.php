@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HouseController;
+use App\Http\Model\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::get('/ownerHome', function() {
     return view('/ownerHome');
 });
 Route::post('/houses/create', [HouseController::class, 'store'])->name('houses.create');
+Route::get('/test/{param}' , [HouseController::class, 'index']);
 
 
 
