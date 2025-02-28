@@ -23,7 +23,7 @@ class House extends Model
     // Define relationships
     public function owner()
     {
-        return $this->belongsTo(User::class, 'id_owner');
+        return $this->belongsTo(User::class, 'id_user');
     }
 
     public function category()

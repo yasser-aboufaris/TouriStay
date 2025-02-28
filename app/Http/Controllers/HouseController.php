@@ -95,4 +95,34 @@ public function index($param){
     }}
 
 
+
+     
+
+    public function base(){
+        $x = ''; 
+        
+
+    $houses = House::with('equipement')
+    ->where('title', 'ILIKE', "%{$x}%")
+    ->orWhereRelation('equipement', 'name', 'ILIKE', "%{$x}%")
+    ->get();
+    return view('bysearch',compact('houses'));
+    }
+
+
+
+
+
+public function search(Request $request) { // ✅ Correct way to receive a request
+    $x = $request->input('search'); 
+    
+    $houses = House::with('equipement')
+        ->where('title', 'ILIKE', "%{$x}%")
+        ->orWhereRelation('equipement', 'name', 'ILIKE', "%{$x}%")
+        ->get();
+
+    return view('bysearch', compact('houses'));
+}
+
+
 } 

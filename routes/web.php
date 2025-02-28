@@ -37,6 +37,8 @@ Route::get('/ownerHome', function() {
 });
 Route::post('/houses/create', [HouseController::class, 'store'])->name('houses.create');
 Route::get('/test/{param}' , [HouseController::class, 'index']);
+Route::get('/houses/homeUser', [HouseController::class, 'base']);
+Route::post('/houses/search', [HouseController::class, 'search']);
 
 
 
